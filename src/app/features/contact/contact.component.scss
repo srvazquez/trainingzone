@@ -1,0 +1,42 @@
+section {
+    &#first {
+        padding: 80px 0 0;
+
+        .title-wrapper {
+            background-color: #ffef3e;
+            position: relative;
+            padding: 20px 0;
+
+            ::ng-deep app-container>div {
+                display: flex;
+                flex-direction: column;
+  
+
+                >span.subtitle {
+                    flex: 1;
+                    font-size: 1.2rem;
+                    line-height: 1.5rem;
+                    text-transform: uppercase;
+                }
+
+                >h1 {
+                    flex: 1;
+                    font-size: 3rem;
+                    line-height: 2.7rem;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                }
+
+              
+            }
+
+
+
+
+        }
+    }
+
+    &#third {
+        padding: 0;
+    }
+}

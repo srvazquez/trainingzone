@@ -1,0 +1,92 @@
+<!-- First -->
+<section id="first">
+  <app-container>
+    <div class="address">
+      <span class="address1"
+        >Calle <strong>Balbino Orensanz 41, Zaragoza</strong></span
+      >
+      <span class="address2">Av. <strong>César Augusto 16</strong></span>
+    </div>
+
+    <div class="description">
+      <span
+        >Centro de<br />
+        <span class="bold"
+          >Entrenamiento personal <br />
+          y nutrición.</span
+        >
+      </span>
+
+      <button>Contrata ya</button>
+    </div>
+
+    <span class="profile">&#64;trainingzone.es</span> 
+  </app-container>
+</section>
+
+<!-- Second -->
+<section id="second">
+  <app-container>
+    @for (gridItem of grid; track $index) {
+      <div class="grid">
+        <div class="first">
+          <div class="title">
+            <h1>{{ gridItem.title }}</h1>
+            <div class="description" [innerHTML]="gridItem.description"></div>
+          </div>
+    
+          @if (gridItem?.mainList?.length) {
+          <ul>
+            @for (itemList of gridItem?.mainList; track $index) {
+            <li>{{ itemList }}</li>
+            }
+          </ul>
+          }
+    
+          <img [src]="gridItem.img" />
+        </div>
+        <div class="second">
+          <h2>Diferencias clave</h2>
+          <ul>
+            <li>
+              ENTRENADOR PERSONAL EN CADA SESIÓN.
+              <br />
+              ATENCIÓN 1 A 1 EXCLUSIVA.
+            </li>
+            <li>ADAPTADO A LESIONES, NECESIDADES ESPECÍFICAS Y OBJETIVOS</li>
+            <li>PLAN DE ENTRENAMIENTO Y ASESORAMIENTO EN HÁBITOS</li>
+          </ul>
+        </div>
+        <div class="third">
+          <h2>Formato del servicio</h2>
+          @if (gridItem?.serviceForamt) {
+          <ul>
+            @for (itemList of gridItem?.serviceForamt; track $index) {
+            <li>
+              {{ itemList.text }}
+              @if (itemList.description) {
+              <br /><span>{{ itemList.description }}</span>
+              }
+            </li>
+            }
+          </ul>
+          }
+        </div>
+        <div class="bottom">
+          <button>Habla con tu entrenador</button>
+        </div>
+      </div>
+      }
+  </app-container>
+ 
+</section>
+
+<!-- Third -->
+<section id="third"></section>
+
+<!-- Foruth -->
+<section id="fourth">
+  <app-container>
+    <app-contact-form></app-contact-form>
+  </app-container>
+</section>
