@@ -1,5 +1,5 @@
 <mat-sidenav-container class="h-full">
-  <mat-sidenav #sidenav mode="over" >
+  <mat-sidenav #sidenav mode="over">
     <mat-nav-list>
       @for (menuItem of menuItems; track menuItem.url) {
       <a
@@ -17,34 +17,37 @@
 
   <mat-sidenav-content class="flex flex-col">
     <header>
-      <!-- Logo -->
-      <img alt="logo" src="/assets/img/logo_grey.png" />
+      <app-container>
+        <!-- Logo -->
+        <img alt="logo" src="/assets/img/logo_grey.png" />
 
-      <!-- Botón de hamburguesa en dispositivos pequeños -->
-      <button
-        mat-icon-button
-        (click)="sidenav.toggle()"
-        class="flex lg:hidden"
-        aria-label="Menu"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
+        <!-- Botón de hamburguesa en dispositivos pequeños -->
+        <button
+          mat-icon-button
+          (click)="sidenav.toggle()"
+          class="flex lg:hidden"
+          aria-label="Menu"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
 
-      <nav class="hidden lg:flex space-x-6">
-        <ul>
-          @for (menuItem of menuItems; track menuItem.url) {
-          <li>
-            <a [routerLink]="menuItem.url"
-              routerLinkActive="active"
-              ariaCurrentWhenActive="page"
-              [class.disabled]="menuItem.disabled"
-            >
-              {{ menuItem.name }}
-            </a>
-          </li>
-          }
-        </ul>
-      </nav>
+        <nav class="hidden lg:flex space-x-6">
+          <ul>
+            @for (menuItem of menuItems; track menuItem.url) {
+            <li>
+              <a
+                [routerLink]="menuItem.url"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                [class.disabled]="menuItem.disabled"
+              >
+                {{ menuItem.name }}
+              </a>
+            </li>
+            }
+          </ul>
+        </nav>
+      </app-container>
     </header>
 
     <!-- Content -->

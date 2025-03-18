@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
+import { ContainerComponent } from "./shared/components/container/container.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +17,14 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ContainerComponent,
     AppRoutingModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    ContainerComponent
+],
   providers: [],
   bootstrap: [AppComponent]
 })

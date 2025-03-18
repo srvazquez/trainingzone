@@ -2,61 +2,67 @@ header {
     height: 76px;
     background-color: #1d1d1b;
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 42px;
+
+    padding: 16px 10px;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 99;
 
-    >img {
-        max-width: 200px;
-        object-fit: contain;
-        padding: 10px;
-    }
-
-    >button {
-        background: transparent;
-        color: white;
-        width: fit-content;
-        min-width: inherit;
-    }
-
-    >nav>ul {
-        list-style: none;
+    ::ng-deep app-container>div {
         display: flex;
-        gap: 16px;
-        margin: 0;
+        justify-content: space-between;
+        align-items: center;
 
-        >li {
-            text-transform: uppercase;
+        >img {
+            max-width: 200px;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        >button {
+            background: transparent;
+            color: white;
+            width: fit-content;
+            min-width: inherit;
+        }
+
+        >nav>ul {
+            list-style: none;
             display: flex;
-            letter-spacing: 0.02rem;
-            cursor: pointer;
-            transition: 325ms all ease-in-out;
+            gap: 16px;
+            margin: 0;
 
-            >a {
-                border-radius: 6px;
-                padding: 7px 14px;
-                font-weight: 600;
-                color: #aaa;
-                transition: 200ms color ease-in-out;
+            >li {
+                text-transform: uppercase;
+                display: flex;
+                letter-spacing: 0.02rem;
+                cursor: pointer;
+                transition: 325ms all ease-in-out;
 
-                &:hover {
-                    color: #fff;
+                >a {
+                    border-radius: 6px;
+                    padding: 7px 14px;
+                    font-weight: 600;
+                    color: #aaa;
+                    transition: 200ms color ease-in-out;
+
+                    &:hover {
+                        color: #fff;
+                    }
+
+                    &.active {
+                        color: #fff;
+                        background-color: #ffffff10;
+                    }
                 }
 
-                &.active {
-                    color: #fff;
-                    background-color: #ffffff10;
-                }
             }
-
         }
     }
+
+
 }
 
 footer {
