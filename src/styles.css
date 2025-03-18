@@ -20,10 +20,12 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     padding: 0;
     margin: 0;
-  
+
 }
 
 section {
@@ -45,4 +47,33 @@ button {
     border: 0;
     outline: 0;
     min-width: 150px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* MatSidenav */
+.mat-drawer.mat-sidenav {
+    background-color: #1d1d1c;
+    border-radius: 0;
+
+    .mdc-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+
+        >a {
+            color: #fff;
+        }
+    }
+
 }

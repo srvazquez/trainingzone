@@ -1,33 +1,74 @@
-<header>
-    <img alt="logo" src="/assets/img/logo_grey.png">
+<mat-sidenav-container class="h-full">
+  <mat-sidenav #sidenav mode="over">
+    <mat-nav-list>
+      @for (menuItem of menuItems; track menuItem.url) {
+      <a
+        [routerLink]="menuItem.url"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="text-white hover:bg-gray-700"
+        [class.disabled]="menuItem.disabled"
+      >
+        {{ menuItem.name }}
+      </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
 
-    <nav>
-        <ul>
-            <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Inicio</a></li>
-            <li><a routerLink="/plans" routerLinkActive="active" ariaCurrentWhenActive="page">Planes</a></li>
-            <li><a routerLink="/small-groups" routerLinkActive="active" ariaCurrentWhenActive="page">Grupos reducidos</a></li>
-            <li>Equipo</li>
-            <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contacto</a></li>
-            <li>Blog</li>
-        </ul>
-    </nav>
-</header>
-<router-outlet></router-outlet>
-<footer>
-    
-    <div class="contact">
-        <img alt="logo" src="/assets/img/logo_grey.png">
+  <mat-sidenav-content class="flex flex-col">
+    <header>
+      <app-container>
+        <!-- Logo -->
+        <img alt="logo" src="/assets/img/logo_grey.png" />
+
+        <!-- Botón de hamburguesa en dispositivos pequeños -->
+        <button
+          mat-icon-button
+          (click)="sidenav.toggle()"
+          class="flex lg:hidden"
+          aria-label="Menu"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <nav class="hidden lg:flex space-x-6">
+          <ul>
+            @for (menuItem of menuItems; track menuItem.url) {
+            <li>
+              <a
+                [routerLink]="menuItem.url"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                [class.disabled]="menuItem.disabled"
+              >
+                {{ menuItem.name }}
+              </a>
+            </li>
+            }
+          </ul>
+        </nav>
+      </app-container>
+    </header>
+
+    <!-- Content -->
+    <router-outlet></router-outlet>
+
+    <!-- Footer -->
+    <footer>
+      <div class="contact">
+        <img alt="logo" src="/assets/img/logo_grey.png" />
         <span>Calle <strong>Balbino Orensanz 41, Zaragoza</strong></span>
         <span>Tlf <strong>625 40 22 95</strong></span>
-        <span>&#64;trainingzone.es</span>
+        <span>&#64;trainindgzone.es</span>
         <span>info&#64;trainingzone.es</span>
-    </div>
+      </div>
 
-    <ul>
+      <ul>
         <li><a href="">Aviso Legal</a></li>
         <li><a href="">Política de cookies</a></li>
         <li><a href="">Política de privacidad</a></li>
         <li><a href="">Terminos y condiciones</a></li>
-    </ul>
- 
-</footer>
+      </ul>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
