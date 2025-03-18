@@ -54,21 +54,24 @@
     <router-outlet></router-outlet>
 
     <!-- Footer -->
-    <footer>
-      <div class="contact">
-        <img alt="logo" src="/assets/img/logo_grey.png" />
-        <span>Calle <strong>Balbino Orensanz 41, Zaragoza</strong></span>
-        <span>Tlf <strong>625 40 22 95</strong></span>
-        <span>&#64;trainindgzone.es</span>
-        <span>info&#64;trainingzone.es</span>
-      </div>
-
-      <ul>
-        <li><a href="">Aviso Legal</a></li>
-        <li><a href="">Política de cookies</a></li>
-        <li><a href="">Política de privacidad</a></li>
-        <li><a href="">Terminos y condiciones</a></li>
-      </ul>
+    <footer class="p-[32px] lg:py-[40px] lg:px-[60px]">
+      <app-container>
+        <div class="contact">
+          <img alt="logo" src="/assets/img/logo_grey.png" />
+          <span>Calle <strong>Balbino Orensanz 41, Zaragoza</strong></span>
+          <span>Tlf <strong>625 40 22 95</strong></span>
+          <span>&#64;trainindgzone.es</span>
+          <span>info&#64;trainingzone.es</span>
+        </div>
+  
+        <ul class="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px]">
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="">Aviso Legal</a></li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="">Política de cookies</a></li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="">Política de privacidad</a></li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="">Terminos y condiciones</a></li>
+        </ul>
+      </app-container>
+    
     </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
