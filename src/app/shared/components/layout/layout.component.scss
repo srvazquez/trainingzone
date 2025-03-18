@@ -2,7 +2,6 @@ header {
     height: 76px;
     background-color: #1d1d1b;
     color: #fff;
-
     padding: 16px 10px;
     position: sticky;
     top: 0;
@@ -68,48 +67,47 @@ header {
 footer {
     background-color: #1d1d1b;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 40px 60px;
     font-size: 13px;
 
-
-    >.contact {
+    ::ng-deep app-container > div {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 40px;
 
-        >img {
-            max-width: 200px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
+        >.contact {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+    
+            >img {
+                max-width: 200px;
+                object-fit: contain;
+                margin-bottom: 0.5rem;
+            }
         }
-    }
-
-    >ul {
-        display: flex;
-        gap: 16px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        >li {
+    
+        >ul {
             display: flex;
             gap: 16px;
-
-            &:not(:first-child)::before {
-                content: '|'
-            }
-
-            >a {
-                transition: 325ms text-decoration ease-in-out;
-
-                &:hover {
-                    text-decoration: underline;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+    
+            >li {
+                display: flex;
+                gap: 16px;
+    
+                >a {
+                    transition: 325ms text-decoration ease-in-out;
+    
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
+    
     }
 
+  
 }
