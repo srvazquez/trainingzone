@@ -19,21 +19,21 @@ interface Plan {
 export class SmallGroupsComponent {
   plans: Plan[] = [
     {
-      title: 'Entrneamiento de <br><strong>4 sesiones al mes.</strong>',
+      title: 'Entrenamiento de <br><strong>4 sesiones al mes.</strong>',
       tag: 'Grupos',
       price: 65,
       unit: '€/persona',
       hint: 'Cada persona deberá comprar <br>su acceso.',
     },
     {
-      title: 'Entrneamiento de <br><strong>8 sesiones al mes.</strong>',
+      title: 'Entrenamiento de <br><strong>8 sesiones al mes.</strong>',
       tag: 'Grupos',
       price: 99,
       unit: '€/persona',
       hint: 'Cada persona deberá comprar <br>su acceso.',
     },
     {
-      title: 'Entrneamiento de <br><strong>12 sesiones al mes.</strong>',
+      title: 'Entrenamiento de <br><strong>12 sesiones al mes.</strong>',
       tag: 'Grupos',
       price: 129,
       unit: '€/persona',
