@@ -61,6 +61,12 @@ body {
 
 
 /* MatSidenav */
+
+mat-sidenav-content {
+    overflow: auto;
+    display: block;
+}
+
 .mat-drawer.mat-sidenav {
     background-color: #1d1d1c;
     border-radius: 0;
