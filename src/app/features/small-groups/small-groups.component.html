@@ -1,8 +1,10 @@
 <!-- First -->
-<section id="first">
+<section id="first" class="!py-[30px] lg:!py-[80px]">
   <app-container>
-    <div class="title-wrapper">
-      <h1>
+    <div
+      class="title-wrapper flex flex-col lg:flex-row gap-[30px] items-start lg:items-end px-[25px] lg:px-[90px]"
+    >
+      <h1 class="text-[4rem] md:text-[6rem] leading-[3rem] md:leading-[4.7rem]">
         Grupos<br />
         reducidos.
       </h1>
@@ -20,13 +22,13 @@
 <!-- Second -->
 <section id="second">
   <app-container>
-    <div class="top">
+    <div class="top py-7 lg:py-10 lg:px-[120px]">
       <h1>
         Entrenar en compañía,<br />
         <strong>sin perder la atención personalizada.</strong>
       </h1>
 
-      <p>
+      <p class="p-0 lg:px-[120px]">
         Crees que tu problema es que te falta disciplina. En realidad, lo que te
         frena es la ausencia de un grupo que te empuje y un profesional
         pendiente de ti. Por eso tenemos nuestros Grupos Reducidos: entrenas con
@@ -35,55 +37,112 @@
       </p>
     </div>
 
-    <div class="middle">
-      <h2>Nuestros planes</h2>
+    <div class="middle flex flex-col gap-10">
+      <h2 class="text-[2rem] md:text-[3rem] leading-[2rem] md:leading-[3rem]">
+        Nuestros planes
+      </h2>
 
-      @for (plan of plans; track $index) {
-      <div class="pricing">
-        <h3 [innerHTML]="plan.title"></h3>
-        <span class="tag">{{ plan.tag }}</span>
-        <span class="price">{{ plan.price }}{{ plan.unit }}</span>
-        <span class="hint" [innerHTML]="'*' + plan.hint"></span>
+      <div
+        class="flex flex-col lg:flex-row gap-[15px] lg:gap-[40px] items-center justify-center"
+      >
+        @for (plan of plans; track $index) {
+        <div class="pricing w-full lg:w-[300px] h-[200px] lg:h-[300px]">
+          <h3 [innerHTML]="plan.title"></h3>
+          <span class="tag">{{ plan.tag }}</span>
+          <span class="price">{{ plan.price }}{{ plan.unit }}</span>
+          <span class="hint" [innerHTML]="'*' + plan.hint"></span>
+        </div>
+        }
       </div>
-      }
     </div>
 
-    <div class="bottom">
+    <div class="bottom pt-10 gap-[30px]">
       <h1>
-        ¿Conoces las <strong>ventajas de los<br />
-        entrenamientos en grupos reducidos?</strong>
+        ¿Conoces las
+        <strong
+          >ventajas de los<br />
+          entrenamientos en grupos reducidos?</strong
+        >
       </h1>
 
-      <span><strong>¿Y si tú tampoco encuentras hueco?</strong><i> Nuestro horario se extiende de lunes a viernes (7h a 22h) y sábados y domingos (8h a 13h). ¿De veras no puedes sacar ese 2-3% de la semana para dedicarlo a tu salud?</i></span>
-
+      <span
+        ><strong>¿Y si tú tampoco encuentras hueco?</strong
+        ><i>
+          Nuestro horario se extiende de lunes a viernes (7h a 22h) y sábados y
+          domingos (8h a 13h). ¿De veras no puedes sacar ese 2-3% de la semana
+          para dedicarlo a tu salud?</i
+        ></span
+      >
 
       <div class="notice">
-        Tener alguien que te guíe en el entrenamiento y además, poder hacerlo con un grupo de gente motivada para cumplir sus objetivos es el doble de eficaz. Si todavía no te hemos convencido estas son algunas de las ventajas de los entrenamientos en grupos reducidos.
+        Tener alguien que te guíe en el entrenamiento y además, poder hacerlo
+        con un grupo de gente motivada para cumplir sus objetivos es el doble de
+        eficaz. Si todavía no te hemos convencido estas son algunas de las
+        ventajas de los entrenamientos en grupos reducidos.
       </div>
 
       <ul class="checklist">
         <li>
-          <strong>Factor motivación:</strong> Al sentir la energía del grupo, te lo tomas más en serio (y encima es divertido).
+          <fa-icon [icon]="faCheck" [size]="'xl'"></fa-icon>
+          <span>
+            <strong>Factor motivación:</strong> Al sentir la energía del grupo,
+            te lo tomas más en serio (y encima es divertido).
+          </span>
         </li>
         <li>
-          <strong>Profesional pendiente de todos: </strong> Al ser grupos pequeños, el entrenador corrige, adapta y te asegura que no harás locuras.
+          <fa-icon [icon]="faCheck" [size]="'xl'"></fa-icon>
+          <span>
+            <strong> Profesional pendiente de todos: </strong>
+            Al ser grupos pequeños, el entrenador corrige, adapta y te asegura
+            que no harás locuras.
+          </span>
         </li>
         <li>
-          <strong>Metodología progresiva:</strong> Se ajusta el entrenamiento según tu nivel y el del resto, sin que nadie se quede atrás.
+          <fa-icon [icon]="faCheck" [size]="'xl'"></fa-icon>
+          <span>
+            <strong> Metodología progresiva:</strong>
+            Se ajusta el entrenamiento según tu nivel y el del resto, sin que
+            nadie se quede atrás.
+          </span>
         </li>
         <li>
-          <strong>Evitas la monotonía:</strong> “No más bostezos en la cinta.” Se sufre y se ríe en compañía, lo que te impulsa a no abandona.
+          <fa-icon [icon]="faCheck" [size]="'xl'"></fa-icon>
+          <span>
+            <strong> Evitas la monotonía:</strong>
+            “No más bostezos en la cinta.” Se sufre y se ríe en compañía, lo que
+            te impulsa a no abandona.
+          </span>
         </li>
         <li>
-          <strong>Precio más asequible: </strong> Disfruta de la exclusividad de un centro de entrenamiento personal, pero compar tiendo costes con el grupo.
+          <fa-icon [icon]="faCheck" [size]="'xl'"></fa-icon>
+          <span>
+            <strong>Precio más asequible: </strong>
+            Disfruta de la exclusividad de un centro de entrenamiento personal,
+            pero compar tiendo costes con el grupo.
+          </span>
         </li>
         <li>
-          <strong>Nuevas amistades y bienestar:</strong> Además de entrenar, conoces gente en la misma búsqueda que tú. El ambiente positivo es un plus contra el estrés.
+          <fa-icon [icon]="faCheck" [size]="'xl'"></fa-icon>
+          <span>
+            <strong>Nuevas amistades y bienestar:</strong>
+            Además de entrenar, conoces gente en la misma búsqueda que tú. El
+            ambiente positivo es un plus contra el estrés.
+          </span>
         </li>
       </ul>
 
-      <span><strong><i>Al final, lo de “no tengo tiempo o dinero” pasa a un segundo plano cuando notas que tu cuerpo y tu salud mental dan un salto de calidad. Invertir solo 2-4 horas a la semana, que no llega ni al 2% de tu tiempo transforma al 100% tu día a día: tendrás más energía, mejor humor, mayor seguridad en ti mismo... ¿A qué esperas para unirte?</i></strong></span>
-
+      <span
+        ><strong
+          ><i
+            >Al final, lo de “no tengo tiempo o dinero” pasa a un segundo plano
+            cuando notas que tu cuerpo y tu salud mental dan un salto de
+            calidad. Invertir solo 2-4 horas a la semana, que no llega ni al 2%
+            de tu tiempo transforma al 100% tu día a día: tendrás más energía,
+            mejor humor, mayor seguridad en ti mismo... ¿A qué esperas para
+            unirte?</i
+          ></strong
+        ></span
+      >
     </div>
   </app-container>
 </section>
@@ -92,19 +151,15 @@
   <app-container [size]="'lg'">
     <div class="title-wrapper">
       <span class="subtitle">Pack de ventajas web</span>
-      <h1>
-        Iniciación en grupo.
-      </h1>
+      <h1>Iniciación en grupo.</h1>
     </div>
 
     <div class="video-wrapper">
       <span class="do-you-dare">Te animas?</span>
-      <div class="video-bg">
-
-      </div>
+      <div class="video-bg"></div>
       <div class="video-title">
         <span>Dos sesiones de entrenamiento personal y primera evaluación</span>
-      
+
         <span>></span>
       </div>
     </div>

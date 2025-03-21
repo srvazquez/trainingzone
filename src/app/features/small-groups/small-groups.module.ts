@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactFormComponent } from '../../shared/components/contact-form/contact-form.component';
-import { SmallGroupsComponent } from './small-groups.component';
 import { ContainerComponent } from '../../shared/components/container/container.component';
+import { SmallGroupsComponent } from './small-groups.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: SmallGroupsComponent
-    }
+  {
+    path: '',
+    component: SmallGroupsComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [
-    SmallGroupsComponent,
-  ],
+  declarations: [SmallGroupsComponent],
   imports: [
     RouterModule.forChild(routes),
     ContactFormComponent,
-    ContainerComponent
+    ContainerComponent,
+    FontAwesomeModule
   ],
-  providers: []
+  providers: [],
 })
-export class SmallGroupsModule { }
+export class SmallGroupsModule {
+}

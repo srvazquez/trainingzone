@@ -3,7 +3,7 @@
 }
 
 .contact-form {
-/*     padding: 40px 40px 60px; */
+    /*     padding: 40px 40px 60px; */
     border: 1px solid #1d1d1c;
 
     h1 {
@@ -17,17 +17,17 @@
         width: fit-content;
         position: relative;
 
-        &::after {
-            content: "";
-            width: 32px;
-            height: 32px;
+        fa-icon {
+            padding: 7px;
+            border: 2px solid #fff;
             position: absolute;
-            border: 1px solid #fff;
-            right: -17px;
+            right: -24px;
+            height: 24px;
+            width: 24px;
+            box-sizing: content-box;
+            z-index: 1;
             background-color: #ffef3e;
             display: flex;
-            align-items: center;
-            justify-content: center;
         }
     }
 

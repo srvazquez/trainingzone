@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 type tag = 'Grupos';
 
 interface Plan {
@@ -15,8 +15,10 @@ interface Plan {
   standalone: false,
   templateUrl: './small-groups.component.html',
   styleUrl: './small-groups.component.scss',
+
 })
 export class SmallGroupsComponent {
+  faCheck = faCheck;
   plans: Plan[] = [
     {
       title: 'Entrenamiento de <br><strong>4 sesiones al mes.</strong>',
@@ -40,4 +42,6 @@ export class SmallGroupsComponent {
       hint: 'Cada persona deberá comprar <br>su acceso.',
     },
   ];
+
+
 }
