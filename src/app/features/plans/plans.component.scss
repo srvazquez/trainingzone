@@ -1,6 +1,5 @@
 section {
     &#first {
-        gap: 250px;
         color: #fff;
         align-items: stretch;
         background-image: url(/assets/img/photo-1.png);
@@ -8,7 +7,7 @@ section {
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        padding: 50px 90px 70px;
+        padding: 40px 0 80px;
 
         &:after {
             content: '';
@@ -20,78 +19,77 @@ section {
             background-color: #00000090;
         }
 
-        .title-wrapper {
+        ::ng-deep app-container>div {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            z-index: 1;
 
-            >h1 {
-                text-transform: uppercase;
-                font-weight: 700;
-                font-size: 4rem;
+            .title-wrapper {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                z-index: 1;
+
+                >h1 {
+                    transition: 200ms all ease-in-out;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+
+                >span {
+                    font-weight: 700;
+                }
             }
 
-            >span {
-                font-weight: 700;
-                font-size: 1.3rem;
-                line-height: 1.5rem;
+            .bottom-actions {
+                position: relative;
+                align-items: center;
+                justify-content: space-between;
+                z-index: 1;
+
+                >button {
+                    width: fit-content;
+                    padding: 8px 50px;
+                    background: transparent;
+                    border: 3px solid #ffff;
+                    color: #fff;
+                }
             }
         }
 
-        .bottom-actions {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1;
 
-            >button {
-                width: fit-content;
-                padding: 8px 50px;
-                background: transparent;
-                border: 3px solid #ffff;
-                color: #fff;
-            }
-        }
     }
 
     &#second {
-        gap: 300px;
+
 
         h1 {
             text-transform: uppercase;
-            font-size: 8rem;
-            font-weight: 700;
-            line-height: 7.6rem;
+            font-weight: 900;
             color: #1d1d1c;
         }
 
-        span {
-            align-self: flex-end;
-            font-size: 1.75rem;
-        }
     }
 
     &#third {
-        gap: 32px;
+
         background-color: #ffef3e;
+
+        ::ng-deep app-container>div {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
 
         .title-wrapper {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
 
             >h1 {
                 text-transform: uppercase;
                 font-weight: 700;
-                font-size: 4.5rem;
-                line-height: 4.1rem;
             }
 
-            >span {
-                font-size: 1.5rem;
-                line-height: 1.4rem;
-            }
         }
 
         .plan {
@@ -101,7 +99,6 @@ section {
             flex-direction: column;
             align-items: flex-start;
             gap: 12px;
-            min-height: 500px;
 
             >h2 {
                 font-size: 2rem;
@@ -120,7 +117,6 @@ section {
             >button {
                 border: 1px solid #000;
                 text-transform: uppercase;
-                max-width: 225px;
                 display: flex;
                 flex-wrap: nowrap;
                 font-size: 1.1rem;

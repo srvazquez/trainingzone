@@ -18,13 +18,13 @@ section {
                 right: 100%;
             }
 
-  
+
             >h1 {
                 flex: 1;
                 text-transform: uppercase;
                 font-weight: 900;
             }
-        
+
 
             >span {
                 flex: 1;
@@ -45,13 +45,9 @@ section {
             flex-direction: column;
         }
 
-        h1 {
-            /* font-size: 3rem;
-            line-height: 2.7rem; */
+        h1>strong {
+            font-weight: 900;
 
-            >strong {
-                font-weight: 900;
-            }
         }
 
         .top {
@@ -182,7 +178,7 @@ section {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 0.8rem;
-                }
+            }
 
             .video-bg {
                 width: 100%;
@@ -196,7 +192,7 @@ section {
                 justify-content: space-between;
                 gap: 12px;
 
-                > * {
+                >* {
                     font-weight: 700;
                     text-transform: uppercase;
                     line-height: 1rem;
