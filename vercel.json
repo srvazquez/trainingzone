@@ -8,20 +8,12 @@
     {
       "src": "frontend/dist/**",
       "use": "@vercel/static"
-    },
-    {
-      "src": "api/**",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/frontend/(.*)",
+      "src": "/(.*)",
       "dest": "/frontend/dist/$1"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
     }
   ]
 }
