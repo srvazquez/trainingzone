@@ -30,6 +30,7 @@
             "polyfills": [
               "zone.js"
             ],
+            "baseHref": "/frontend/",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
