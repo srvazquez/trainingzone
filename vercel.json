@@ -5,7 +5,7 @@
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "frontend/dist"
+        "distDir": "frontend/dist/trainingzone"
       }
     },
     {
@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "frontend/dist/$1"
+      "dest": "frontend/dist/trainingzone/$1"
     },
     {
       "src": "/api/(.*)",
