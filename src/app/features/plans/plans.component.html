@@ -1,15 +1,15 @@
 <!-- First -->
-<section id="first">
-  <app-container>
-    <div class="title-wrapper">
-      <h1>Planes.</h1>
-      <span
+<section id="first" class="!pb-[40px] sm:!pb-[80px]">
+  <app-container [size]="'lg'">
+    <div class="title-wrapper mb-[120px] lg:mb-[250px]">
+      <h1 class="text-[2.3rem] md:text-[3.3rem] leading-[2.1rem] md:leading-[3rem]">Planes.</h1>
+      <span class="text-[1rem] md:text-[1.2rem] leading-[1.2rem] md:leading-[1.4rem]"
         >Encuentra los mejores planes de entrenamiento <br />y nutrición en
         Zaragoza</span
       >
     </div>
   
-    <div class="bottom-actions">
+    <div class="bottom-actions flex flex-col sm:flex-row gap-5">
       <button>Elige tu plan</button>
       <span>&#64;trainingzone.es</span>
     </div>
@@ -19,12 +19,12 @@
 
 <!-- Second -->
 <section id="second">
-  <app-container>
-    <h1>
+  <app-container [size]="'xl'">
+    <h1 class="text-[3.3rem] md:text-[6.1rem] leading-[3.4rem] md:leading-[5.8rem] !mb-10 md:!mb-[250px]">
       Naciste para moverte,<br />muévete para<br />
       ser más.
     </h1>
-    <span>&#64;trainingzone.es</span>
+    <span class="text-[1rem] md:text-[1.75rem] float-right">&#64;trainingzone.es</span>
   </app-container>
   
 </section>
@@ -32,36 +32,36 @@
 <!-- Third -->
 <section id="third">
   <app-container>
-    <div class="title-wrapper">
-      <h1>
+    <div class="title-wrapper flex flex-col md:flex-row gap-3 items-start md:items-end">
+      <h1 class="text-[2.5rem] md:text-[4.5rem] leading-[2.4rem] md:leading-[4.1rem]">
           Nuestros<br />planes.
       </h1>
-      <span
+      <span class="text-[1.2rem] md:text-[1.5rem] leading-[1.3rem] md:leading-[1.4rem]"
         >Nasciste para moverte,<br> muevete para ser más.</span
       >
     </div>
   
-    <div class="plan">
+    <div class="plan min-h-[350px] md:min-h-[500px]">
       <h2>Centro training.</h2>
       <span><strong>Entrena con nuestros profesionales</strong> en<br>
         nuestro centro de entrenamiento personal<br>
         <strong>de forma individual.</strong></span>
   
   
-        <button>Entrneamiento personal</button>
-        <button>Grupos reducidos</button>
-        <button>Running</button>
+        <button class="max-w-full sm:max-w-[225px]">Entrneamiento personal</button>
+        <button class="max-w-full sm:max-w-[225px]">Grupos reducidos</button>
+        <button class="max-w-full sm:max-w-[225px]">Running</button>
     </div>
   
-    <div class="plan">
+    <div class="plan min-h-[350px] md:min-h-[500px]">
       <h2>Online.</h2>
       <span>Entrena cuándo tú quieras,<strong>hazlo desde casa,<br>
         en el parque o en tu gimnasio habitual.</strong></span>
   
   
-        <button>Entrenamiento online</button>
-        <button>Nutrición online</button>
-        <button>Pack completo
+        <button class="max-w-full sm:max-w-[225px]">Entrenamiento online</button>
+        <button class="max-w-full sm:max-w-[225px]">Nutrición online</button>
+        <button class="max-w-full sm:max-w-[225px]">Pack completo
           <span>entrenamiento + nutrición</span>
         </button>
     </div>
