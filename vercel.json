@@ -15,10 +15,6 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "frontend/dist/trainingzone/$1"
-    },
-    {
       "src": "/api/(.*)",
       "dest": "api/$1"
     }
