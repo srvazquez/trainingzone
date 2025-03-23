@@ -5,18 +5,14 @@
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "frontend/dist"
+        "distDir": "frontend/dist/trainingzone"
       }
-    },
-    {
-      "src": "api/package.json",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/$1"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
