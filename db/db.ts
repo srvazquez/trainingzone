@@ -2,8 +2,19 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import mysql from 'mysql2/promise';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+
+ // Simula un tiempo de respuesta (opcional)
+ await new Promise(resolve => setTimeout(resolve, 500)); 
+
+ // Devuelve una respuesta simple en JSON
+ res.status(200).json({ 
+   status: "OK",
+   message: "¡Llamada de prueba exitosa!",
+   timestamp: new Date().toISOString()
+ });
+
   // Configura la conexión a la base de datos usando variables de entorno
-  const connection = await mysql.createConnection({
+ /*  const connection = await mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -20,5 +31,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } finally {
     // Cierra la conexión a la base de datos
     await connection.end();
-  }
+  } */
 }
