@@ -4,6 +4,7 @@ import { ContactFormComponent } from '../../shared/components/contact-form/conta
 import { ContainerComponent } from '../../shared/components/container/container.component';
 import { MapComponent } from '../../shared/components/map/map.component';
 import { ContactComponent } from './contact.component';
+import { ApiService } from '../../core/api.service';
 
 const routes: Routes = [
     {
@@ -22,6 +23,8 @@ const routes: Routes = [
     ContainerComponent,
     MapComponent 
   ],
-  providers: []
+  providers: [
+    ApiService
+  ]
 })
 export class ContactModule { }
