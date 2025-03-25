@@ -2,15 +2,22 @@
   "version": 2,
   "builds": [
     {
+      "src": "package.json",
+      "use": "@vercel/angular"
+    },
+    {
       "src": "api/**/*.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["**/*.ts"],
-        "runtime": "nodejs14.x"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ]
 }
