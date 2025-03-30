@@ -1,5 +1,5 @@
-import { provideHttpClient } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -15,6 +15,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './shared/components/container/container.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs, 'es');
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
+
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
   imports: [
@@ -28,8 +41,15 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
     MatIconModule,
     ContainerComponent,
     FontAwesomeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

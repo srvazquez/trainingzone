@@ -1,0 +1,142 @@
+:host {
+    flex: 1;
+}
+
+section {
+    &#first {
+        padding: 80px 0 0;
+
+        .title-wrapper {
+            background-color: #ffef3e;
+            position: relative;
+            padding: 20px 0;
+
+            ::ng-deep app-container>div {
+                display: flex;
+                flex-direction: column;
+
+
+                >span.subtitle {
+                    flex: 1;
+                    font-size: 1.2rem;
+                    line-height: 1.5rem;
+                    text-transform: uppercase;
+                }
+
+                >h1 {
+                    flex: 1;
+                    font-size: 3rem;
+                    line-height: 2.7rem;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                }
+
+
+            }
+
+
+
+
+        }
+    }
+
+
+    &#second {
+
+        ::ng-deep app-container>div {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .dashboard-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+
+                >.card {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    gap: 12px;
+                    border: 2px solid #e3e3e3;
+                    border-radius: 12px;
+                    padding: 18px;
+
+                    >.title {
+                        display: flex;
+                        justify-content: space-between;
+
+                        >h1 {
+                            font-weight: 500;
+                            font-size: 0.9rem;
+                            line-height: 0.9rem;
+                        }
+
+                        >span {
+                            font-size: 0.9rem;
+                            line-height: 0.9rem;
+                            opacity: 0.6;
+                            font-weight: 600;
+                        }
+                    }
+
+                    >.value {
+                        font-size: 1.8rem;
+                        line-height: 1.8rem;
+                        font-weight: 700;
+
+                        >span {
+                            font-size: 0.85rem;
+                            line-height: 1rem;
+                            opacity: 0.8;
+                            font-weight: 400;
+                        }
+                    }
+
+                    >.empty-message {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex: 1;
+                        opacity: 0.8;
+                        color: #444;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}
+
+form {
+    border: 2px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    >.row {
+        display: flex;
+        gap: 20px;
+
+        >.form-control {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            >mat-label {
+                font-weight: 600;
+                margin-left: 0.25rem;
+                font-size: 14px;
+            }
+        }
+    }
+
+
+
+}

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenavContent } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 
 interface MenuItem {
@@ -47,9 +48,16 @@ export class LayoutComponent {
       url: '/blog',
       disabled: true,
     },
+    {
+      name: 'Calculadora',
+      url: '/calculator',
+    },
   ];
 
-  constructor(private readonly router: Router) {
+  constructor(
+    private readonly router: Router,
+    private translate: TranslateService
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
       }
@@ -61,6 +69,12 @@ export class LayoutComponent {
         this.scrollToTop();
         this.activePath = val.urlAfterRedirects.substring(1);
       });
+
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('es');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('es');
   }
 
   private scrollToTop() {

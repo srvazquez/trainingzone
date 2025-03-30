@@ -14,22 +14,23 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^19.1.0",
-    "@angular/cdk": "^19.2.3",
+    "@angular/animations": "^19.2.4",
+    "@angular/cdk": "^19.2.7",
     "@angular/common": "^19.1.0",
     "@angular/compiler": "^19.1.0",
     "@angular/core": "^19.1.0",
     "@angular/forms": "^19.1.0",
     "@angular/google-maps": "^19.2.3",
-    "@angular/material": "^19.2.3",
+    "@angular/material": "^19.2.7",
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
     "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@ngx-translate/core": "^16.0.4",
+    "@ngx-translate/http-loader": "^16.0.1",
     "@tailwindcss/postcss": "^4.0.12",
     "rxjs": "~7.8.0",
-    "tailwindcss": "^4.0.12",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -48,6 +49,8 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "mysql2": "^3.14.0",
     "postcss": "^8.5.3",
-    "typescript": "~5.7.2"
+    "tailwindcss": "^4.0.17",
+    "typescript": "~5.7.2",
+    "sass": "^1.86.0"
   }
 }
