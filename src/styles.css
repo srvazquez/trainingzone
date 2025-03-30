@@ -83,3 +83,48 @@ mat-sidenav-content {
     }
 
 }
+
+/* Tables */
+table {
+    thead>tr.mat-mdc-header-row {
+        height: 30px;
+        background: #111213;
+        color: white;
+        border-radius: 10px 10px 0 0;
+
+        >th:first-child {
+            border-radius: 6px 0 0;
+        }
+
+        >th:last-child {
+            border-radius: 0 6px 0 0;
+        }
+
+        > th:not(:first-child) {
+            text-align: center;
+        }
+    }
+
+    .mat-mdc-row .mat-mdc-cell {
+        padding: 6px;
+        border: none;
+
+        &:not(:first-child) {
+            text-align: center;
+        }
+    }
+}
+
+
+/* Input */
+.mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+.mat-mdc-form-field-infix {
+    width: 100% !important;
+}
+
+.mdc-line-ripple {
+    display: none;
+}

@@ -1,0 +1,15 @@
+{
+    "calculator": {
+        "activities": {
+            "sedentary": "Sedentaria: Pasas la mayor parte del día sentado/a (p. ej. trabajando en un banco, en un despacho)",
+            "light": "Ligeramente activa: Pasas buena parte del día de pie (p. ej. profesor, vendedor)",
+            "active": "Activa: Pasas buena parte del día haciendo alguna actividad física (p. ej. camarero, cartero)",
+            "very_active": "Muy activa: Pasas la mayor parte del día haciendo actividad física intensa (p. ej. ciclista mensajero, carpintero)"
+        },
+        "goals": {
+            "fat_loss": "Pérdida de peso",
+            "maintenance": "Normocalórica",
+            "gain_mass": "Superávit"
+        }
+    }
+}

@@ -1,0 +1,198 @@
+<section id="first">
+  <div class="title-wrapper">
+    <app-container [size]="'2xl'">
+      <span class="subtitle">Training Zone</span>
+      <h1>Calculadora.</h1>
+    </app-container>
+  </div>
+</section>
+
+<section id="second">
+  <app-container [size]="'lg'">
+    <!-- Calculator -->
+    <form [formGroup]="calculatorForm">
+
+
+      <div class="row flex flex-col md:flex-row">
+        <!-- Gender -->
+        <div class="form-control">
+          <mat-label>Género</mat-label>
+          <mat-form-field>
+            <mat-select
+              formControlName="gender"
+              placeholder="Selecciona un género"
+            >
+              <mat-option [value]="null">Seleccione uno</mat-option>
+              <mat-option [value]="'MALE'">Masculino</mat-option>
+              <mat-option [value]="'FEMALE'">Femenino</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Age -->
+        <div class="form-control">
+          <mat-label>Edad</mat-label>
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              formControlName="age"
+              placeholder="Edad"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row flex flex-col md:flex-row">
+        <!-- Weight -->
+        <div class="form-control">
+          <mat-label>Peso</mat-label>
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              formControlName="weight"
+              placeholder="Peso"
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Height -->
+        <div class="form-control">
+          <mat-label>Altura (cm)</mat-label>
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              formControlName="height"
+              placeholder="Altura"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Activity Factor -->
+        <div class="form-control">
+          <mat-label>Factor de actividad</mat-label>
+          <mat-form-field>
+            <mat-select formControlName="activity" placeholder="Selecciona uno">
+              @for (key of activityKeys; track key) {
+              <mat-option [value]="key">
+                {{
+                  "calculator.activities." + ACTIVITIES[key]
+                    | lowercase
+                    | translate
+                }}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Goals -->
+        <div class="form-control">
+          <mat-label>Objetivo</mat-label>
+          <mat-form-field>
+            <mat-select
+              placeholder="Selecciona un objetivo"
+              formControlName="goal"
+              required
+            >
+              @for (key of goalKeys; track key) {
+              <mat-option [value]="key">
+                {{ "calculator.goals." + GOALS[key] | lowercase | translate }}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    @if (calculatorForm.valid) {
+    <div class="dashboard-row flex flex-col md:flex-row">
+      <!-- TMB -->
+      <div class="card">
+        <div class="title">
+          <h1>Gasto energétivo en reposo</h1>
+          <span>TMB</span>
+        </div>
+
+        <div class="value">{{ TMB | number : "1.1-2" }} <span>kcal.</span></div>
+      </div>
+
+      <!-- Total calories -->
+      <div class="card">
+        <div class="title">
+          <h1>Kcal Totales</h1>
+          <span> <fa-icon [icon]="faFire"></fa-icon> </span>
+        </div>
+
+        <div class="value">
+          {{ totalCalories | number : "1.1-2" }} <span>kcal.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-row flex flex-col md:flex-row">
+      <form [formGroup]="macrosForm" class="card">
+        <div class="title">
+          <h1>Calculadora de macros</h1>
+          <span> <fa-icon [icon]="faCalculator"></fa-icon></span>
+        </div>
+
+
+        <table mat-table [dataSource]="macroData">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef [style.width.%]="40"> Macro </th>
+            <td mat-cell *matCellDef="let element" >
+              <mat-form-field class="flex-1">
+                <mat-label>{{ element.name }}</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  [formControlName]="element.name" 
+                />
+                <span matSuffix>{{ element.unit}}</span>
+              </mat-form-field>
+            </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="kcal">
+            <th mat-header-cell *matHeaderCellDef [style.width.%]="30"> Reparto KCAL </th>
+            <td mat-cell *matCellDef="let element" > {{element.kcal | number : "1.1-2"}} kcal. </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="gr">
+            <th mat-header-cell *matHeaderCellDef [style.width.%]="30"> Gramos </th>
+            <td mat-cell *matCellDef="let element" > {{element.gr | number : "1.1-2"}} gr.</td>
+          </ng-container>
+        
+
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+      </form>
+
+      <div class="card">
+        <div class="title">
+          <h1>Reparto comidas</h1>
+          <span> <fa-icon [icon]="faBalanceScale"></fa-icon></span>
+        </div>
+
+        <div class="empty-message">Aún no está disponible</div>
+      </div>
+    </div>
+
+    }
+  </app-container>
+</section>
