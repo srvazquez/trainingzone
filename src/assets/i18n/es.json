@@ -1,10 +1,11 @@
 {
     "calculator": {
         "activities": {
-            "sedentary": "Sedentaria: Pasas la mayor parte del día sentado/a (p. ej. trabajando en un banco, en un despacho)",
-            "light": "Ligeramente activa: Pasas buena parte del día de pie (p. ej. profesor, vendedor)",
-            "active": "Activa: Pasas buena parte del día haciendo alguna actividad física (p. ej. camarero, cartero)",
-            "very_active": "Muy activa: Pasas la mayor parte del día haciendo actividad física intensa (p. ej. ciclista mensajero, carpintero)"
+            "sedentary": "<strong>Sedentario:</strong> Poco o nada de ejercicio.",
+            "light": "<strong>Ligera actividad:</strong> Ejercicio ligero 1-3 días/semana.",
+            "active": "<strong>Moderada actividad:</strong> Ejercicio moderado 3-5 días/semana.",
+            "very_active": "<strong>Alta actividad:</strong> Ejercicio intenso 6-7 días/semana.",
+            "extreme_active": "<strong>Muy alta (atleta):</strong> Entrenamiento muy intenso o trabajo físico duro."
         },
         "goals": {
             "fat_loss": "Pérdida de peso",
