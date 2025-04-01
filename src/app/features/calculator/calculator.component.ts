@@ -19,6 +19,7 @@ export enum ActiviyValueEnum {
   LIGHT = 1.375,
   ACTIVE = 1.55,
   VERY_ACTIVE = 1.725,
+  EXTREME_ACTIVE = 1.9,
 }
 
 export const ACTIVITIES = {
@@ -26,6 +27,7 @@ export const ACTIVITIES = {
   LIGHT: 'LIGHT',
   ACTIVE: 'ACTIVE',
   VERY_ACTIVE: 'VERY_ACTIVE',
+  EXTREME_ACTIVE: 'EXTREME_ACTIVE',
 } as const;
 export type ActivityType = keyof typeof ACTIVITIES;
 
@@ -63,16 +65,17 @@ export class CalculatorComponent implements OnInit, OnDestroy {
   // Macros data
   displayedColumns: string[] = ['name', 'kcal', 'gr'];
   macroData: MacroData[] = [
-    { name: 'proteins', unit: 'gr/kg', kcal: 0, gr: 0 },
+    { name: 'proteins', unit: '%', kcal: 0, gr: 0 },
     { name: 'hc', unit: '%', kcal: 0, gr: 0 },
-    { name: 'fats', unit: 'gr/kg', kcal: 0, gr: 0 },
+    { name: 'fats', unit: '%', kcal: 0, gr: 0 },
   ];
 
   calculatorForm!: FormGroup;
   macrosForm!: FormGroup;
+  private previousValues: any = { proteins: 20, fats: 30, hc: 50 }; // Valores iniciales
 
   TMB: number | null = null;
-  totalCalories: number = 0;
+  GET: number = 0;
 
   faFire = faFire;
   faCalculator = faCalculator;
@@ -126,14 +129,25 @@ export class CalculatorComponent implements OnInit, OnDestroy {
       .subscribe(() => this.calculateCalories());
 
     this.macrosForm = this.fb.group({
-      hc: [0, [Validators.min(0), Validators.max(100), Validators.required]],
-      fats: [1, [Validators.min(0), Validators.required]],
-      proteins: [2, [Validators.min(0), Validators.required]],
+      hc: [50, [Validators.min(0), Validators.max(100), Validators.required]],
+      fats: [20, [Validators.min(0), Validators.max(100), Validators.required]],
+      proteins: [
+        30,
+        [Validators.min(0), Validators.max(100), Validators.required],
+      ],
     });
-  
-    this.macrosForm.valueChanges
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe(() => this.updateMacrosForm());
+
+      // Guardar las proporciones iniciales entre los tres valores
+      const initialValues = [
+        this.macrosForm.get('proteins')?.value,
+        this.macrosForm.get('fats')?.value,
+        this.macrosForm.get('hc')?.value
+      ];
+
+      this.macrosForm.valueChanges.subscribe(currentValues => {
+        this.setupPercentageAdjustment(currentValues);
+      });
+     
   }
 
   calculateCalories() {
@@ -155,30 +169,67 @@ export class CalculatorComponent implements OnInit, OnDestroy {
       // Ajuste según el objetivo (desde el Enum)
       const goalFactor = GoalEnum[goal as keyof typeof GoalEnum];
 
-      this.totalCalories = maintenanceCalories * goalFactor;
+      this.GET = maintenanceCalories * goalFactor;
 
-      this.updateMacrosForm();
+      this.calculateData();
     } else {
       this.TMB = null;
-      this.totalCalories = 0;
+      this.GET = 0;
     }
   }
 
-  private updateMacrosForm = () => {
-    const proteinsPercent =
-      (this.proteins?.value *
-        this.weight?.value *
-        Utils.MACROS.proteins.energy *
-        100) /
-      this.totalCalories;
-    const fatsPercent =
-      (this.fats?.value * this.weight?.value * Utils.MACROS.fats.energy * 100) /
-      this.totalCalories;
-    const hcPercent = 100 - proteinsPercent - fatsPercent;
 
-    const proteinsKcal: number = (proteinsPercent * this.totalCalories) / 100;
-    const fatsKcal: number = (fatsPercent * this.totalCalories) / 100;
-    const hcKcal: number = (hcPercent * this.totalCalories) / 100;
+  setupPercentageAdjustment(currentValues: any) {
+    // Evitar bucles infinitos
+    if (this.macrosForm.invalid || !this.macrosForm.dirty) return;
+
+    const changedField = this.findChangedField(currentValues);
+    if (!changedField) return;
+
+    const newValue = currentValues[changedField];
+    const otherFields = ['proteins', 'fats', 'hc'].filter(f => f !== changedField);
+
+    // Calcular el porcentaje restante
+    const remainingPercentage = 100 - newValue;
+
+    // Mantener la proporción original entre los otros dos campos
+    const originalSum = this.previousValues[otherFields[0]] + this.previousValues[otherFields[1]];
+    const ratio1 = this.previousValues[otherFields[0]] / originalSum;
+    const ratio2 = this.previousValues[otherFields[1]] / originalSum;
+
+    // Distribuir el porcentaje restante proporcionalmente
+    const newValue1 = Math.round(remainingPercentage * ratio1 * 10) / 10;
+    const newValue2 = Math.round(remainingPercentage * ratio2 * 10) / 10;
+
+    // Ajustar posibles errores de redondeo
+    const adjustment = 100 - (newValue + newValue1 + newValue2);
+
+    // Actualizar el formulario sin disparar valueChanges nuevamente
+    this.macrosForm.patchValue({
+      [otherFields[0]]: newValue1 + adjustment,
+      [otherFields[1]]: newValue2
+    }, { emitEvent: false });
+
+    this.calculateData();
+    // Guardar los valores actuales para la próxima comparación
+    this.previousValues = { ...this.macrosForm.value };
+ 
+  }
+
+  // Identificar qué campo fue modificado
+  findChangedField(currentValues: any): string | null {
+    for (const field of ['proteins', 'fats', 'hc']) {
+      if (currentValues[field] !== this.previousValues[field]) {
+        return field;
+      }
+    }
+    return null;
+  }
+
+  private calculateData(): void {
+    const proteinsKcal: number = (this.proteins.value * this.GET) / 100;
+    const fatsKcal: number = (this.fats.value * this.GET) / 100;
+    const hcKcal: number = (this.hc.value * this.GET) / 100;
 
     this.macroData.forEach((mD: MacroData) => {
       if (mD.name === 'proteins') {
@@ -192,7 +243,5 @@ export class CalculatorComponent implements OnInit, OnDestroy {
         mD.gr = hcKcal / Utils.MACROS.proteins.energy;
       }
     });
-
-    this.hc.setValue(+hcPercent.toFixed(2));
-  };
+  }
 }
