@@ -33,15 +33,19 @@ export type ActivityType = keyof typeof ACTIVITIES;
 
 // GOALS
 export enum GoalEnum {
-  FAT_LOSS = 0.8,
-  MAINTENANCE = 1.0,
-  GAIN_MASS = 1.15,
+  MAINTENANCE = 0,
+  SURPLUS = 200,
+  AGGRESSIVE_SURPLUS = 650,
+  DEFICIT = -200,
+  AGGRESSIVE_DEFICIT = -650
 }
 
 export const GOALS = {
-  GAIN_MASS: 'GAIN_MASS',
-  FAT_LOSS: 'FAT_LOSS',
   MAINTENANCE: 'MAINTENANCE',
+  SURPLUS: 'SURPLUS',
+  AGGRESSIVE_SURPLUS: 'AGGRESSIVE_SURPLUS',
+  DEFICIT: 'DEFICIT',
+  AGGRESSIVE_DEFICIT: 'AGGRESSIVE_DEFICIT',
 } as const;
 
 export type GoalType = keyof typeof GOALS;
@@ -137,17 +141,9 @@ export class CalculatorComponent implements OnInit, OnDestroy {
       ],
     });
 
-      // Guardar las proporciones iniciales entre los tres valores
-      const initialValues = [
-        this.macrosForm.get('proteins')?.value,
-        this.macrosForm.get('fats')?.value,
-        this.macrosForm.get('hc')?.value
-      ];
-
-      this.macrosForm.valueChanges.subscribe(currentValues => {
-        this.setupPercentageAdjustment(currentValues);
-      });
-     
+    this.macrosForm.valueChanges.subscribe((currentValues) => {
+      this.setupPercentageAdjustment(currentValues);
+    });
   }
 
   calculateCalories() {
@@ -169,7 +165,7 @@ export class CalculatorComponent implements OnInit, OnDestroy {
       // Ajuste según el objetivo (desde el Enum)
       const goalFactor = GoalEnum[goal as keyof typeof GoalEnum];
 
-      this.GET = maintenanceCalories * goalFactor;
+      this.GET = maintenanceCalories + goalFactor;
 
       this.calculateData();
     } else {
@@ -177,7 +173,6 @@ export class CalculatorComponent implements OnInit, OnDestroy {
       this.GET = 0;
     }
   }
-
 
   setupPercentageAdjustment(currentValues: any) {
     // Evitar bucles infinitos
@@ -187,13 +182,16 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     if (!changedField) return;
 
     const newValue = currentValues[changedField];
-    const otherFields = ['proteins', 'fats', 'hc'].filter(f => f !== changedField);
+    const otherFields = ['proteins', 'fats', 'hc'].filter(
+      (f) => f !== changedField
+    );
 
     // Calcular el porcentaje restante
     const remainingPercentage = 100 - newValue;
 
     // Mantener la proporción original entre los otros dos campos
-    const originalSum = this.previousValues[otherFields[0]] + this.previousValues[otherFields[1]];
+    const originalSum =
+      this.previousValues[otherFields[0]] + this.previousValues[otherFields[1]];
     const ratio1 = this.previousValues[otherFields[0]] / originalSum;
     const ratio2 = this.previousValues[otherFields[1]] / originalSum;
 
@@ -205,15 +203,17 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     const adjustment = 100 - (newValue + newValue1 + newValue2);
 
     // Actualizar el formulario sin disparar valueChanges nuevamente
-    this.macrosForm.patchValue({
-      [otherFields[0]]: newValue1 + adjustment,
-      [otherFields[1]]: newValue2
-    }, { emitEvent: false });
+    this.macrosForm.patchValue(
+      {
+        [otherFields[0]]: newValue1 + adjustment,
+        [otherFields[1]]: newValue2,
+      },
+      { emitEvent: false }
+    );
 
     this.calculateData();
     // Guardar los valores actuales para la próxima comparación
     this.previousValues = { ...this.macrosForm.value };
- 
   }
 
   // Identificar qué campo fue modificado

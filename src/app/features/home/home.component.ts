@@ -33,7 +33,7 @@ export class HomeComponent {
         'CORRECCIÓN DE TÉCNICA Y SEGUIMIENTO PERSONALIZADO EN CADA SESIÓN.',
         'FLEXIBILIDAD TOTAL: ELIGE DÍAS, HORARIOS Y LA FRECUENCIA QUE MEJOR TE VENGA.'
       ],
-      img: '/assets/img/photo-1.png',
+      img: '/assets/img/photo-1.webp',
       keyDifferences: [
         { 
           text: 'ENTRENADOR PERSONAL EN CADA SESIÓN.<br>ATENCIÓN 1 A 1 EXCLUSIVA'
@@ -60,7 +60,7 @@ export class HomeComponent {
         'CORRECCIÓN DE TÉCNICA Y AJUSTES PERSONALIZADOS EN CADA SESIÓN.',
         'AMBIENTE MOTIVADOR PARA MEJORAR SIN EXCUSAS'
       ],
-      img: '/assets/img/grid-item-2.png',
+      img: '/assets/img/photo-2.webp',
       keyDifferences: [
         {
           text: 'ENTRENADOR GUIANDO Y ADAPTANDO CADA ENTRENAMIENTO.',
@@ -94,7 +94,7 @@ export class HomeComponent {
         'Flexibilidad total: entrena a tu ritmo sin depender de horarios fijos.',
         'OPCIÓN CON NUTRICIÓN PARA MAXIMIZAR RESULTADOS.'
       ],
-      img: '/assets/img/grid-item-3.png',
+      img: '/assets/img/photo-3.webp',
       keyDifferences: [
         {
           text: '100% online desde cualquier lugar.'

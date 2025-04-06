@@ -8,9 +8,11 @@
             "extreme_active": "<strong>Muy alta (atleta):</strong> Entrenamiento muy intenso o trabajo físico duro."
         },
         "goals": {
-            "fat_loss": "Pérdida de peso",
             "maintenance": "Normocalórica",
-            "gain_mass": "Superávit"
+            "surplus": "Superávit (+200 kcal)",
+            "aggressive_surplus": "Superávit agresivo (+500-800 kcal)",
+            "deficit": "Déficit calórico (-200 kcal)",
+            "aggressive_deficit": "Déficit calorico agresivo (-500-800 kcal)"
         }
     }
 }
