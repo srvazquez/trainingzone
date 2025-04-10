@@ -167,13 +167,11 @@ section {
 
             .second {
                 position: relative;
-                padding: 0px 35px 60px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
                 &::before {
-                    content: '';
                     position: absolute;
                     left: 0;
                     width: 2px;
@@ -199,13 +197,11 @@ section {
 
             .third {
                 position: relative;
-                padding: 25px 35px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
                 &::before {
-                    content: '';
                     position: absolute;
                     left: 0;
                     width: 2px;
