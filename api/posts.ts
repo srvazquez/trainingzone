@@ -1,7 +1,10 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import mysql from 'mysql2/promise';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+) {
   // Configura CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -18,14 +21,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: Number(process.env.MYSQL_PORT || 3306),
+    port: Number(process.env.MYSQL_PORT || 3306)
   });
 
   try {
     // Consulta para obtener todos los posts
     const [rows] = await connection.execute(
       `SELECT * 
-FROM tnt_post 
+FROM tnt_posts 
 WHERE post_status = 'publish' 
   AND TRIM(post_content) != '' 
 ORDER BY post_date DESC 
@@ -34,14 +37,16 @@ LIMIT 10;`
 
     return res.status(200).json({
       success: true,
-      data: rows,
+      data: rows
     });
+
   } catch (error) {
     console.error('Error al obtener posts:', error);
     return res.status(500).json({
       success: false,
-      error: 'Error al obtener posts',
+      error: 'Error al obtener posts'
     });
+
   } finally {
     // Cierra la conexión
     await connection.end();
