@@ -27,7 +27,7 @@ export default async function handler(
   try {
     // Consulta para obtener todos los posts
     const [rows] = await connection.execute(
-      `SELECT * FROM tnt_posts ORDER BY post_date DESC`
+      `SELECT * FROM tnt_posts ORDER BY post_date DESC LIMIT 10`
     );
 
     return res.status(200).json({
