@@ -2,17 +2,19 @@
   <div class="title-wrapper">
     <app-container [size]="'xl'">
       <span class="subtitle">Training Zone</span>
-      <h1>Contacto.</h1>
+      <h1>Blog.</h1>
     </app-container>
   </div>
 </section>
 
-<section>
+<section id="second">
   <app-container [size]="'xl'">
-    <app-contact-form></app-contact-form>
+    <div class="post-list">
+        @for (post of postList$ | async; track post.ID) {
+            <app-post [post]="post"></app-post>
+           
+        }
+    </div>
+   
   </app-container>
-</section>
-
-<section id="third">
-  <app-map></app-map>
 </section>

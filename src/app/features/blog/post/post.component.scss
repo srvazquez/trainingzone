@@ -1,0 +1,44 @@
+:host {
+    border: 3px solid #1d1d1b;
+    background: white;
+    color: #1d1d1b;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    > .info {
+        flex: 1;
+        width: calc(100% - 200px);
+
+        > h1 {
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        > span.content {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: calc(100% - 100px);
+            display: inline-block;
+            font-size: 0.8rem;
+        }
+    }
+
+    > button {
+        font-size: 2rem;
+        width: fit-content;
+        margin: 14px 29px 14px 0;
+        min-width: 0;
+        background: transparent;
+        opacity: 0.8;
+        transition: 200ms opacity ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
