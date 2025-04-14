@@ -1,1 +1,7 @@
-<p>article works!</p>
+<section>
+  <app-container [size]="'xl'">
+    @if (post$ | async; as post) {
+    <div [innerHTML]="post.post_content"></div>
+    }
+  </app-container>
+</section>
