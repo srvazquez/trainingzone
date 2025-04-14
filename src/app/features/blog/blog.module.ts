@@ -6,18 +6,24 @@ import { ContainerComponent } from '../../shared/components/container/container.
 import { BlogComponent } from './blog.component';
 import { PostComponent } from './post/post.component';
 import { StripHtmlPipe } from '../../shared/pipes/strip-html.pipe';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: BlogComponent
+        component: BlogComponent,
+    },
+    {
+      path: 'article/:id',
+      component: ArticleComponent
     }
 ];
 
 @NgModule({
   declarations: [
     BlogComponent,
-    PostComponent
+    PostComponent,
+    ArticleComponent
   ],
   imports: [
     CommonModule,

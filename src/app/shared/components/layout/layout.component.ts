@@ -41,7 +41,7 @@ export class LayoutComponent {
       disabled: true,
     },
     {
-      name: 'Contaco',
+      name: 'Contacto',
       url: '/contact',
     },
     {

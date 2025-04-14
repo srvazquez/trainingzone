@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export interface Post {
@@ -17,4 +18,10 @@ export class PostComponent {
   @Input({ required: true }) post!: Post;
 
   faPlus = faPlus;
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  openArticle(ID: number): void {
+    this.router.navigate([`article/${ID}`], {relativeTo: this.route})
+  }
 }
