@@ -1,7 +1,7 @@
 <section>
-  <app-container [size]="'xl'">
+  <app-container [size]="'lg'">
     @if (post$ | async; as post) {
-    <div [innerHTML]="post.post_content"></div>
+    <div [innerHTML]="post.post_content" class="article"></div>
     }
   </app-container>
 </section>

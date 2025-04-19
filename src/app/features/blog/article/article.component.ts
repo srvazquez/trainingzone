@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../core/api.service';
 import { map, Observable, Subject, takeUntil } from 'rxjs';
@@ -8,6 +8,7 @@ import { map, Observable, Subject, takeUntil } from 'rxjs';
   standalone: false,
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<void> = new Subject<void>();
