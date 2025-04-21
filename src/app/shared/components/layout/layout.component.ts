@@ -37,8 +37,7 @@ export class LayoutComponent {
     },
     {
       name: 'Equipo',
-      url: '/team',
-      disabled: true,
+      url: '/team'
     },
     {
       name: 'Contacto',
@@ -46,8 +45,7 @@ export class LayoutComponent {
     },
     {
       name: 'Blog',
-      url: '/blog',
-      disabled: true,
+      url: '/blog'
     },
     {
       name: 'Calculadora',

@@ -27,6 +27,10 @@ const routes: Routes = [
         loadChildren: () => import('./features/small-groups/small-groups.module').then(m => m.SmallGroupsModule)
       },
       {
+        path: 'team',
+        loadChildren: () => import('./features/team/team.module').then(m => m.TeamModule)
+      },
+      {
         path: 'contact',
         loadChildren: () => import('./features/contact/contact.module').then(m => m.ContactModule)
       },

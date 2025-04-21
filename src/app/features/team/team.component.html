@@ -1,0 +1,88 @@
+<section id="first">
+  <div class="title-wrapper">
+    <app-container [size]="'xl'">
+      <span class="subtitle">Training Zone</span>
+      <h1>Nuestro proyecto.</h1>
+    </app-container>
+  </div>
+</section>
+
+<section id="second">
+  <app-container [size]="'xl'">
+    <div class="our-project-text">
+      <p>
+        Training Zone
+        <strong
+          >nace de la ilusión de un par de amigos con ganas de mostrar lo que
+          más les gusta hacer.</strong
+        >
+      </p>
+      <p>
+        La <strong>unión de deporte y alimentación saludable</strong> hacen de
+        <strong>Training Zone</strong> el centro de entrenamiento personal y nu
+        trición en Zaragoza que es hoy en día. A todo esto se le suma
+        <strong>esfuerzo, trabajo y constancia</strong> de todo el equipo
+        consiguiendo que <strong>nuestros clientes implanten</strong> es sus
+        vidas
+        <strong>hábitos saludables y sepan mantenerlos de forma eficaz.</strong>
+      </p>
+
+      <p>
+        <strong
+          >Todos podemos tener una evolución en nuestro físico y en nuestra
+          salud, de una forma mucho más sencilla de lo que nos han hecho pensar,
+          lo imprescindible es po nerle ganas y actitud positiva.</strong
+        >
+      </p>
+
+      <span>&#64;trainingzone.es</span>
+    </div>
+  </app-container>
+</section>
+
+<section id="third">
+  <app-container [size]="'xl'">
+    <div class="team-build"></div>
+    <h1>Equipo training zone.</h1>
+
+    <div class="slider-wrapper">
+      <!-- Botón anterior -->
+      <button class="nav-button prev" (click)="slidePrev()">‹</button>
+
+      <swiper-container
+      #swiperEl
+        slides-per-view="3"
+        speed="500"
+        loop="true"
+        navigation="false"
+        space-between="30"
+        class="team-swiper"
+      >
+        @for (person of team; track person) {
+        <swiper-slide>
+          <div class="card">
+            <div class="img-wrapper">
+                <img
+                [src]="person.img"
+                alt="{{ person.nombre }}"
+                class="profile-img"
+              />
+            </div>
+          
+            <div class="info-wrapper">
+              <div class="info">
+                <h3>{{ person.nombre }}</h3>
+                <p>{{ person.rol }}</p>
+              </div>
+              <fa-icon [icon]="faInstagram"></fa-icon>
+            </div>
+          </div>
+        </swiper-slide>
+        }
+      </swiper-container>
+
+      <!-- Botón siguiente -->
+      <button class="nav-button next" (click)="slideNext()">›</button>
+    </div>
+  </app-container>
+</section>
