@@ -14,14 +14,14 @@ export class TeamComponent implements AfterViewInit {
 
   team = [
     { nombre: 'SERGIO', rol: 'CEO', img: '/assets/img/1.webp' },
-    { nombre: 'ALVARO', rol: 'CONSULTOR DE DIRECCIÓN', img:'/assets/img/2.webp' },
-    { nombre: 'SARA', rol: 'ESTRATEGIA VISUAL', img: '/assets/img/3.webp' },
-    { nombre: 'MARTA', rol: 'MARKETING DIGITAL', img: '/assets/img/4.webp' },
-    { nombre: 'JAVI', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/5.webp' },
-    { nombre: 'DANI', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/6.webp' },
-    { nombre: 'JORGE', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/7.webp' },
+    { nombre: 'ALVARO', rol: 'CONSULTOR DE DIRECCIÓN', img:'/assets/img/3.webp' },
+    { nombre: 'SARA', rol: 'ESTRATEGIA VISUAL', img: '/assets/img/2.webp' },
+    { nombre: 'MARTA', rol: 'MARKETING DIGITAL', img: '/assets/img/5.webp' },
+    { nombre: 'JAVI', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/4.webp' },
+    { nombre: 'DANI', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/7.webp' },
+    { nombre: 'JORGE', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/8.webp' },
     { nombre: 'RAÚL', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/8.webp' },
-    { nombre: 'RUBEN', rol: 'NUTRICIONISTA & ENTRENADOR PERSONAL', img:'/assets/img/2.webp' },
+    { nombre: 'RUBEN', rol: 'NUTRICIONISTA & ENTRENADOR PERSONAL', img:'/assets/img/7.webp' },
   ];
 
   sliderBreakpoints: { [key: number]: {}} = {
