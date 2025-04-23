@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   templateUrl: './container.component.html'
 })
 export class ContainerComponent {
-  @Input() size: '2xl' | 'xl' | 'lg' | 'md' = 'xl';
+  @Input() size: '2xl' | 'xl' | 'lg' | 'md' | 'sm' = 'xl';
 }
