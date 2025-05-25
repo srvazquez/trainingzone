@@ -117,7 +117,7 @@ section {
         > .info-wrapper {
           display: flex;
           gap: 10px;
-          height: 72px;
+          height: 100px;
 
           .info {
             display: flex;
@@ -133,6 +133,7 @@ section {
             }
 
             > p {
+              text-transform: uppercase;
               font-size: 1.1rem;
               line-height: 1.1rem;
               margin: 0;

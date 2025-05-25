@@ -13,15 +13,15 @@ export class TeamComponent implements AfterViewInit {
   @ViewChild('swiperEl', { static: false }) swiperElRef!: ElementRef;
 
   team = [
-    { nombre: 'SERGIO', rol: 'CEO', img: '/assets/img/1.webp' },
-    { nombre: 'ALVARO', rol: 'CONSULTOR DE DIRECCIÓN', img:'/assets/img/3.webp' },
-    { nombre: 'SARA', rol: 'ESTRATEGIA VISUAL', img: '/assets/img/2.webp' },
-    { nombre: 'MARTA', rol: 'MARKETING DIGITAL', img: '/assets/img/5.webp' },
-    { nombre: 'JAVI', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/4.webp' },
-    { nombre: 'DANI', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/7.webp' },
-    { nombre: 'JORGE', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/8.webp' },
-    { nombre: 'RAÚL', rol: 'ENTRENADOR PERSONAL', img:'/assets/img/8.webp' },
-    { nombre: 'RUBEN', rol: 'NUTRICIONISTA & ENTRENADOR PERSONAL', img:'/assets/img/7.webp' },
+    { nombre: 'SERGIO', rol: 'CEO & Founder', img: '/assets/img/1.webp' },
+    { nombre: 'ALVARO', rol: 'Consultor de Dirección & Control Financiero', img:'/assets/img/3.webp' },
+    { nombre: 'SARA', rol: 'Directora de Contenidos & Estrategia Visual', img: '/assets/img/2.webp' },
+    { nombre: 'MARTA', rol: 'Responsable de Marketing Digital & Performance', img: '/assets/img/5.webp' },
+    { nombre: 'JAVI', rol: 'Entrenador personal & Líder del Área de Running', img:'/assets/img/4.webp' },
+    { nombre: 'DANI', rol: 'Entrenador Personal', img:'/assets/img/7.webp' },
+    { nombre: 'JORGE', rol: 'Entrenador Personal', img:'/assets/img/8.webp' },
+    { nombre: 'RAÚL', rol: 'Entrenador Personal', img:'/assets/img/8.webp' },
+    { nombre: 'RUBEN', rol: 'Nutricionista & Entrenador Personal', img:'/assets/img/7.webp' },
   ];
 
   sliderBreakpoints: { [key: number]: {}} = {

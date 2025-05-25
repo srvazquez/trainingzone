@@ -1,1 +1,42 @@
-<div id="map" style="width: 100%; height: 500px;"></div>
+<google-map
+  [center]="center"
+  [zoom]="zoom"
+  [options]="mapOptions"
+  width="100%"
+  height="500px">
+  
+  <map-marker
+    *ngFor="let marker of markerOptions; let i = index"
+    [position]="marker.position"
+    [title]="marker.title"
+    (mapClick)="onMarkerClick(i)">
+  </map-marker>
+  
+  <!-- Info Window -->
+  <map-info-window #infoWindow>
+    <div *ngIf="selectedMarker" class="info-window">
+      <h3>{{ selectedMarker.title }}</h3>
+      
+      <div class="address">
+        <strong>📍 Dirección:</strong>
+        <p>{{ selectedMarker.address }}</p>
+      </div>
+      
+      <div class="rating" *ngIf="selectedMarker.rating > 0">
+        <strong>⭐ Puntuación:</strong>
+        <span class="rating-value">{{ selectedMarker.rating }}/5</span>
+        <span class="reviews-count">({{ selectedMarker.reviews }} reseñas)</span>
+      </div>
+      
+      <div class="actions">
+        <button 
+          class="maps-button"
+          (click)="openInGoogleMaps(selectedMarker)"
+          type="button">
+          📍 Ver en Google Maps
+        </button>
+      </div>
+    </div>
+  </map-info-window>
+
+</google-map>
