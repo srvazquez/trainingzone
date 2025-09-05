@@ -3,11 +3,14 @@
     <mat-nav-list>
       @for (menuItem of menuItems; track menuItem.url) {
       <a
+        mat-list-item
         [routerLink]="menuItem.url"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
         class="text-white hover:bg-gray-700"
         [class.disabled]="menuItem.disabled"
+        (click)="sidenav.close()"
+        (keydown.enter)="sidenav.close()"
       >
         {{ menuItem.name }}
       </a>
@@ -28,7 +31,7 @@
           class="flex lg:hidden"
           aria-label="Menu"
         >
-        <fa-icon [icon]="faBars"></fa-icon>
+          <fa-icon [icon]="faBars"></fa-icon>
         </button>
 
         <nav class="hidden lg:flex space-x-6">
@@ -39,6 +42,7 @@
                 [routerLink]="menuItem.url"
                 routerLinkActive="active"
                 ariaCurrentWhenActive="page"
+                class="text-white hover:bg-gray-700"
                 [class.disabled]="menuItem.disabled"
               >
                 {{ menuItem.name }}
@@ -63,15 +67,22 @@
           <span>&#64;trainindgzone.es</span>
           <span>info&#64;trainingzone.es</span>
         </div>
-  
+
         <ul class="flex flex-col lg:flex-row gap-[10px] lg:gap-[40px]">
-          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="/aviso-legal">Aviso Legal</a></li>
-          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="/politica-cookies">Política de cookies</a></li>
-          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="/politica-privacidad">Política de privacidad</a></li>
-          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5"><a href="/terminos-condiciones">Términos y condiciones</a></li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5">
+            <a href="/aviso-legal">Aviso Legal</a>
+          </li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5">
+            <a href="/politica-cookies">Política de cookies</a>
+          </li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5">
+            <a href="/politica-privacidad">Política de privacidad</a>
+          </li>
+          <li class="text-white lg:first:border-l-0 lg:border-l lg:border-white lg:pl-5">
+            <a href="/terminos-condiciones">Términos y condiciones</a>
+          </li>
         </ul>
       </app-container>
-    
     </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
