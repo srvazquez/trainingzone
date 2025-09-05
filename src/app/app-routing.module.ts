@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 
 const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
@@ -33,10 +34,31 @@ const routes: Routes = [
       {
         path: 'calculator',
         loadChildren: () => import('./features/calculator/calculator.module').then(m => m.CalculatorModule)
-      }
+      },
+      {
+        path: 'aviso-legal',
+        loadChildren: () =>
+          import('./features/avisolegal/avisolegal.routes').then(m => m.AVISOLEGAL_ROUTES),
+      },
+      {
+        path: 'politica-privacidad',
+        loadChildren: () =>
+          import('./features/politica-privacidad/politica-privacidad.routes').then(m => m.POLITICA_PRIVACIDAD_ROUTES),
+      },
+      {
+        path: 'politica-cookies',
+        loadChildren: () =>
+          import('./features/politica-cookies/politica-cookies.routes').then(m => m.POLITICA_COOKIES_ROUTES),
+      },
+      {
+        path: 'terminos-condiciones',
+        loadChildren: () =>
+          import('./features/terminos-condiciones/terminos-condiciones.routes').then(m => m.TERMINOS_CONDICIONES_ROUTES),
+      },
+
     ]
   },
- /*  { path: '**', component: Error404Component } */
+  /*  { path: '**', component: Error404Component } */
 ];
 
 @NgModule({
