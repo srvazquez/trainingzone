@@ -1,0 +1,237 @@
+@charset "UTF-8";
+section#first {
+  color: #000;
+  background-color: #fff03e;
+  background-image: url(/assets/img/1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section#first ::ng-deep app-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 170px;
+}
+
+section#first ::ng-deep app-container > div .address {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+section#first ::ng-deep app-container > div .address > * {
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.04rem;
+}
+
+section#first ::ng-deep app-container > div .description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 36px;
+  line-height: 36px;
+  gap: 40px;
+  text-transform: uppercase;
+}
+
+section#first ::ng-deep app-container > div .description > span {
+  font-size: 32px;
+}
+
+section#first ::ng-deep app-container > div .description > span > span {
+  font-size: 36px;
+}
+
+section#first ::ng-deep app-container > div span.profile {
+  font-size: 13px;
+}
+
+section#first ::ng-deep app-container > div button, section#first ::ng-deep app-container > div a.button {
+  border-radius: 0;
+  border: 3px solid #000;
+  padding: 14px 45px;
+  font-size: 18px;
+  line-height: 16px;
+  text-transform: uppercase;
+  background: transparent;
+  transition: 325ms all ease-in-out;
+  cursor: pointer;
+  width: fit-content;
+}
+
+section#first ::ng-deep app-container > div button:hover, section#first ::ng-deep app-container > div a.button:hover {
+  background: #000;
+  color: #fff03e;
+}
+
+section#second {
+  background-color: #1d1d1c;
+}
+
+section#second .plan {
+  color: #ffffff;
+}
+
+section#second .plan.border-separator {
+  border-top: 2px solid #fff;
+  padding-top: 2rem;
+}
+
+section#second .plan ul {
+  padding-inline-start: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+section#second .plan ul > li {
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+section#second .plan ul > li::before {
+  content: "●";
+  font-size: 1.1em;
+  position: absolute;
+  left: -20px;
+  top: -1px;
+}
+
+section#second .plan ul > li > span {
+  font-size: 11px;
+  opacity: 0.5;
+}
+
+section#second .plan .first {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+section#second .plan .first > .title {
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+section#second .plan .first > .title > h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 30px;
+}
+
+section#second .plan .first > .title > .description {
+  opacity: 0.6;
+  font-style: italic;
+  line-height: 1rem;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+section#second .plan .first > ul {
+  gap: 15px;
+}
+
+section#second .plan .first > ul > li {
+  font-size: 17px;
+  line-height: 19px;
+  text-transform: uppercase;
+}
+
+section#second .plan .first > img {
+  object-fit: cover;
+  width: 500px;
+  height: 235px;
+}
+
+section#second .plan .second {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+section#second .plan .second::before {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background: #fff;
+}
+
+section#second .plan .second > h2 {
+  margin: 0;
+  text-transform: uppercase;
+  color: #1d1d1c;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px 10px;
+  letter-spacing: -0.04rem;
+}
+
+section#second .plan .third {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+section#second .plan .third::before {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background: #fff;
+}
+
+section#second .plan .third::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 90%;
+  top: 0;
+  right: 0;
+  background: #fff;
+}
+
+section#second .plan .third > h2 {
+  margin: 0;
+  text-transform: uppercase;
+  color: #1d1d1c;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px 10px;
+  letter-spacing: -0.04rem;
+}
+
+section#second .plan .bottom {
+  grid-area: bottom;
+  margin-top: 2.5rem;
+}
+
+section#third {
+  background-color: #fff;
+  min-height: 5rem;
+}
+
+section#fourth {
+  background-color: #fff;
+}

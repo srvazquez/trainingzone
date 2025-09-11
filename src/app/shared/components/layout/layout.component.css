@@ -1,0 +1,173 @@
+@charset "UTF-8";
+/* ===== Header ===== */
+header {
+  height: 76px;
+  background-color: #1d1d1b;
+  color: #fff;
+  padding: 16px 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+header ::ng-deep app-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ::ng-deep app-container > div > a img {
+  max-width: 200px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+header ::ng-deep app-container > div > button {
+  background: transparent;
+  color: #fff;
+  width: fit-content;
+  min-width: initial;
+  border: 0;
+  outline: 0;
+}
+
+header ::ng-deep app-container > div > button:focus-visible {
+  outline: 2px solid #ffffff55;
+  outline-offset: 2px;
+}
+
+header ::ng-deep app-container > div > nav > ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+}
+
+header ::ng-deep app-container > div > nav > ul > li {
+  text-transform: uppercase;
+  display: flex;
+  letter-spacing: 0.02rem;
+  cursor: pointer;
+  transition: 325ms all ease-in-out;
+}
+
+header ::ng-deep app-container > div > nav > ul > li > a {
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-weight: 600;
+  color: #aaa;
+  transition: 200ms color ease-in-out, 200ms background-color ease-in-out;
+  text-decoration: none;
+}
+
+header ::ng-deep app-container > div > nav > ul > li > a:hover {
+  color: #fff;
+  background-color: #ffffff10;
+}
+
+header ::ng-deep app-container > div > nav > ul > li > a:focus-visible {
+  outline: 2px solid #ffffff55;
+  outline-offset: 2px;
+}
+
+header ::ng-deep app-container > div > nav > ul > li > a.active {
+  color: #fff;
+  background-color: #ffffff10;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #1d1d1b;
+  color: #fff;
+  font-size: 13px;
+}
+
+footer ::ng-deep app-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+footer ::ng-deep app-container > div > .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+footer ::ng-deep app-container > div > .contact > img {
+  max-width: 200px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+footer ::ng-deep app-container > div > ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ::ng-deep app-container > div > ul > li {
+  display: flex;
+  gap: 16px;
+}
+
+footer ::ng-deep app-container > div > ul > li > a {
+  color: #fff;
+  text-decoration: none;
+  transition: 325ms text-decoration ease-in-out, 200ms color ease-in-out;
+}
+
+footer ::ng-deep app-container > div > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+footer ::ng-deep app-container > div > ul > li > a:focus-visible {
+  outline: 2px solid #ffffff55;
+  outline-offset: 2px;
+}
+
+/* ===== Sidenav (menú móvil Angular Material MDC) ===== */
+/* Usa :host ::ng-deep para sobrepasar la encapsulación del componente */
+:host ::ng-deep .mat-drawer.mat-sidenav {
+  background-color: #1d1d1b;
+  border-radius: 0;
+}
+
+:host ::ng-deep .mat-drawer.mat-sidenav .mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Estilo del enlace cuando usas <a mat-list-item> */
+:host ::ng-deep .mat-drawer.mat-sidenav a.mat-mdc-list-item.mdc-list-item {
+  color: #fff !important;
+  /* color sobre el ancla */
+  border-radius: 6px;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: 200ms background-color ease-in-out, 200ms color ease-in-out;
+}
+
+/* Texto interno real de MDC (asegura blanco) */
+:host ::ng-deep .mat-drawer.mat-sidenav .mdc-list-item__primary-text {
+  color: #fff !important;
+}
+
+/* Hover / foco */
+:host ::ng-deep .mat-drawer.mat-sidenav a.mat-mdc-list-item.mdc-list-item:hover,
+:host ::ng-deep .mat-drawer.mat-sidenav a.mat-mdc-list-item.mdc-list-item:focus {
+  background-color: #ffffff12;
+  outline: none;
+}
+
+/* Estado activo (routerLinkActive="active") */
+:host ::ng-deep .mat-drawer.mat-sidenav a.active {
+  background-color: #ffffff1a;
+  color: #fff !important;
+}
